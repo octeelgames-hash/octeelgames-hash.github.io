@@ -4,14 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- SEO -->
 <title>PartyHarvest - Cozy Co-op Farming Game</title>
-<meta name="description" content="PartyHarvest is a colorful co-op farming adventure by Octeel Games. Grow crops, decorate your farm, and play together with friends.">
-<meta name="keywords" content="PartyHarvest, farming game, co-op game, multiplayer farming, indie game">
-<meta name="author" content="Octeel Games">
+<meta name="description" content="PartyHarvest is a colorful co-op farming adventure by Octeel Games. Grow crops and play together with friends.">
 
 <meta property="og:title" content="PartyHarvest - Co-op Farming Fun">
-<meta property="og:description" content="Grow crops. Play together. Party forever!">
 <meta property="og:image" content="hero.png">
 <meta property="og:type" content="website">
 
@@ -19,21 +15,22 @@
 
 <style>
 
-/* GLOBAL */
+/* ================= GLOBAL ================= */
 *{margin:0;padding:0;box-sizing:border-box}
+
 body{
   font-family:'Poppins', sans-serif;
-  scroll-behavior:smooth;
   background:#fff;
   color:#222;
+  scroll-behavior:smooth;
 }
 
 section{
-  padding:80px 20px;
+  padding:100px 20px;
   text-align:center;
   opacity:0;
   transform:translateY(40px);
-  transition:all 0.8s ease;
+  transition:0.8s ease;
 }
 
 section.show{
@@ -41,18 +38,18 @@ section.show{
   transform:translateY(0);
 }
 
-/* NAV */
+/* ================= NAV ================= */
 nav{
   position:fixed;
-  width:100%;
   top:0;
+  width:100%;
   background:#fff;
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:15px 30px;
   box-shadow:0 3px 10px rgba(0,0,0,0.1);
-  z-index:1000;
+  z-index:2000;
 }
 
 .logo{
@@ -61,33 +58,35 @@ nav{
 }
 
 nav ul{
-  display:flex;
-  gap:20px;
   list-style:none;
+  display:flex;
+  gap:25px;
 }
 
 nav a{
   text-decoration:none;
   color:#222;
+  font-weight:500;
 }
 
-/* HAMBURGER */
+/* Hamburger */
 .hamburger{
   display:none;
-  font-size:26px;
+  font-size:28px;
   cursor:pointer;
 }
 
+/* Mobile menu */
 .mobile-menu{
   position:fixed;
   top:0;
   right:-100%;
-  width:70%;
-  height:100%;
+  width:75%;
+  height:100vh;
   background:#fff;
-  padding:40px;
-  transition:0.4s;
-  box-shadow:-5px 0 15px rgba(0,0,0,0.2);
+  padding:100px 30px;
+  transition:0.4s ease;
+  z-index:1900;
 }
 
 .mobile-menu.active{
@@ -96,11 +95,32 @@ nav a{
 
 .mobile-menu a{
   display:block;
-  margin-bottom:20px;
+  margin-bottom:25px;
   font-size:18px;
+  text-decoration:none;
+  color:#222;
 }
 
-/* HERO PARALLAX */
+/* Overlay */
+.overlay-bg{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.4);
+  opacity:0;
+  visibility:hidden;
+  transition:0.3s;
+  z-index:1800;
+}
+
+.overlay-bg.active{
+  opacity:1;
+  visibility:visible;
+}
+
+/* ================= HERO ================= */
 .hero{
   height:100vh;
   background:url("hero.png") center/cover no-repeat fixed;
@@ -108,10 +128,9 @@ nav a{
   justify-content:center;
   align-items:center;
   color:#fff;
-  text-align:center;
 }
 
-.hero .overlay{
+.hero-content{
   background:rgba(0,0,0,0.4);
   padding:40px;
   border-radius:20px;
@@ -121,18 +140,22 @@ nav a{
   font-size:60px;
 }
 
+.hero p{
+  margin-top:10px;
+}
+
 .btn{
   margin-top:20px;
   padding:12px 30px;
   background:#ffce00;
   border-radius:30px;
-  font-weight:600;
-  display:inline-block;
   text-decoration:none;
   color:#000;
+  font-weight:600;
+  display:inline-block;
 }
 
-/* TRAILER */
+/* ================= TRAILER ================= */
 iframe{
   width:90%;
   max-width:840px;
@@ -141,7 +164,7 @@ iframe{
   border:none;
 }
 
-/* GALLERY */
+/* ================= GALLERY ================= */
 .gallery{
   display:flex;
   gap:30px;
@@ -159,7 +182,7 @@ iframe{
   transform:scale(1.05);
 }
 
-/* STEAM STYLE SECTION */
+/* ================= STORE ================= */
 .store{
   background:#1b2838;
   color:#fff;
@@ -173,43 +196,35 @@ iframe{
   border-radius:20px;
 }
 
-.store h3{
-  font-size:28px;
-}
-
-.store .price{
-  font-size:22px;
-  margin:15px 0;
-}
-
-.store .wishlist{
+.wishlist{
   background:#66c0f4;
   padding:12px 25px;
   border-radius:8px;
   color:#000;
-  font-weight:600;
-  display:inline-block;
   text-decoration:none;
+  font-weight:600;
 }
 
-/* MOBILE */
-@media (max-width:768px){
+/* ================= FOOTER ================= */
+footer{
+  padding:40px;
+  text-align:center;
+  background:#f1f1f1;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+
   nav ul{display:none}
   .hamburger{display:block}
+
   .hero h1{font-size:36px}
   iframe{height:250px}
   .gallery img{width:90%}
 }
 
-footer{
-  padding:30px;
-  text-align:center;
-  background:#f1f1f1;
-}
-
 </style>
 </head>
-
 <body>
 
 <nav>
@@ -230,8 +245,10 @@ footer{
   <a href="#store" onclick="toggleMenu()">Store</a>
 </div>
 
+<div class="overlay-bg" id="overlay" onclick="toggleMenu()"></div>
+
 <section id="hero" class="hero">
-  <div class="overlay">
+  <div class="hero-content">
     <h1>PartyHarvest 🌽</h1>
     <p>Grow crops. Play together. Party forever!</p>
     <a href="#" class="btn">Wishlist on Steam</a>
@@ -239,12 +256,12 @@ footer{
 </section>
 
 <section id="trailer">
-  <h2> Official Trailer</h2>
+  <h2>🎬 Official Trailer</h2>
   <iframe src="https://www.youtube.com/embed/cIubERFNhh8" allowfullscreen></iframe>
 </section>
 
 <section id="screens">
-  <h2> Screenshots</h2>
+  <h2>🖼 Screenshots</h2>
   <div class="gallery">
     <img src="hero.png">
     <img src="hero.png">
@@ -255,7 +272,7 @@ footer{
 <section id="store" class="store">
   <div class="store-box">
     <h3>PartyHarvest on Steam</h3>
-    <p class="price">Coming Soon</p>
+    <p>Coming Soon</p>
     <a href="#" class="wishlist">Add to Wishlist</a>
   </div>
 </section>
@@ -266,12 +283,15 @@ footer{
 
 <script>
 
+/* Mobile Menu */
 function toggleMenu(){
   document.getElementById("mobileMenu").classList.toggle("active");
+  document.getElementById("overlay").classList.toggle("active");
 }
 
-/* Fade-in on scroll */
+/* Fade-in Scroll */
 const sections = document.querySelectorAll("section");
+
 window.addEventListener("scroll", ()=>{
   sections.forEach(sec=>{
     const top = sec.getBoundingClientRect().top;
