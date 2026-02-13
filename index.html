@@ -79,10 +79,7 @@ nav a{
   transition:0.3s;
 }
 
-body.dark .lang-toggle{
-  background:#1e1e1e;
-}
-
+body.dark .lang-toggle{background:#1e1e1e}
 .lang-toggle:hover{transform:scale(1.05)}
 
 .flag{
@@ -98,13 +95,8 @@ body.dark .lang-toggle{
   to{transform:scale(1)}
 }
 
-.flag.en{
-  background-image:url("https://flagcdn.com/w40/us.png");
-}
-
-.flag.th{
-  background-image:url("https://flagcdn.com/w40/th.png");
-}
+.flag.en{background-image:url("https://flagcdn.com/w40/us.png")}
+.flag.th{background-image:url("https://flagcdn.com/w40/th.png")}
 
 /* Hamburger */
 .hamburger{
@@ -150,7 +142,6 @@ body.dark .lang-toggle{
 
 .hero-content{
   position:relative;
-  z-index:2;
   text-align:center;
   background:rgba(0,0,0,0.15);
   padding:40px;
@@ -183,6 +174,7 @@ section{
 }
 
 .featured{background:var(--section)}
+.gallery{background:var(--section)}
 
 .featured h2,
 .trailer h2,
@@ -211,11 +203,8 @@ section{
 }
 
 body.dark .game-card{background:#1e1e1e}
-
 .game-card:hover{transform:translateY(-10px)}
-
 .game-card img{width:100%}
-
 .game-card-content{padding:20px}
 
 /* ================= TRAILER ================= */
@@ -227,8 +216,6 @@ body.dark .game-card{background:#1e1e1e}
 }
 
 /* ================= GALLERY ================= */
-.gallery{background:var(--section)}
-
 .gallery-grid{
   display:grid;
   grid-template-columns:repeat(3,1fr);
@@ -300,9 +287,9 @@ footer{
   <div class="logo">Octeel Games</div>
 
   <ul>
+    <li><a href="#about">About</a></li>
     <li><a href="#featured">Featured</a></li>
     <li><a href="#trailer">Trailer</a></li>
-    <li><a href="#about">About</a></li>
   </ul>
 
   <div style="display:flex;align-items:center;gap:15px;">
@@ -318,16 +305,15 @@ footer{
 </nav>
 
 <div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="toggleMenu()">About</a>
   <a href="#featured" onclick="toggleMenu()">Featured</a>
   <a href="#trailer" onclick="toggleMenu()">Trailer</a>
-  <a href="#about" onclick="toggleMenu()">About</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-content">
     <h1 data-en="PartyHarvest" data-th="ปาร์ตี้ฮาร์เวสต์">PartyHarvest</h1>
-
     <p data-en="Grow crops. Play together. Party forever!"
        data-th="ปลูกผัก เล่นกับเพื่อน ปาร์ตี้ไม่มีวันจบ!">
        Grow crops. Play together. Party forever!
@@ -343,12 +329,20 @@ footer{
   </div>
 </section>
 
+<!-- ABOUT -->
+<section class="about" id="about">
+<h2>About Us</h2>
+<p data-en="Octeel Games is an indie studio creating joyful co-op experiences."
+   data-th="Octeel Games คือสตูดิโออินดี้ที่สร้างเกม Co-op สนุกสดใส">
+Octeel Games is an indie studio creating joyful co-op experiences.
+</p>
+</section>
+
 <!-- FEATURED -->
 <section class="featured" id="featured">
 <h2>Featured Games</h2>
 
 <div class="featured-grid">
-
   <div class="game-card">
     <img src="hero.png">
     <div class="game-card-content">
@@ -381,7 +375,6 @@ footer{
       </p>
     </div>
   </div>
-
 </div>
 </section>
 
@@ -392,7 +385,7 @@ footer{
 frameborder="0" allowfullscreen></iframe>
 </section>
 
-<!-- GALLERY -->
+<!-- GALLERY 3x2 -->
 <section class="gallery">
 <h2>Game Screenshots</h2>
 <div class="gallery-grid">
@@ -402,19 +395,7 @@ frameborder="0" allowfullscreen></iframe>
   <img src="hero.png">
   <img src="hero.png">
   <img src="hero.png">
-  <img src="hero.png">
-  <img src="hero.png">
-  <img src="hero.png">
 </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about" id="about">
-<h2>About Us</h2>
-<p data-en="Octeel Games is an indie studio creating joyful co-op experiences."
-   data-th="Octeel Games คือสตูดิโออินดี้ที่สร้างเกม Co-op สนุกสดใส">
-Octeel Games is an indie studio creating joyful co-op experiences.
-</p>
 </section>
 
 <footer>
