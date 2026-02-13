@@ -7,20 +7,17 @@
 <title>PartyHarvest - Cozy Co-op Farming Game</title>
 <meta name="description" content="PartyHarvest is a colorful co-op farming adventure by Octeel Games.">
 
-<meta property="og:title" content="PartyHarvest - Co-op Farming Fun">
-<meta property="og:image" content="hero.png">
-<meta property="og:type" content="website">
-
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* ================= THEME COLORS ================= */
+/* ================= THEME ================= */
 :root{
   --bg:#ffffff;
   --text:#222;
   --nav:#ffffff;
   --section:#f5f5f5;
+  --footer:#444;
 }
 
 body.dark{
@@ -28,6 +25,7 @@ body.dark{
   --text:#f5f5f5;
   --nav:#1e1e1e;
   --section:#1a1a1a;
+  --footer:#1e1e1e;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
@@ -38,19 +36,6 @@ body{
   color:var(--text);
   scroll-behavior:smooth;
   transition:0.3s;
-}
-
-section{
-  padding:100px 20px;
-  text-align:center;
-  opacity:0;
-  transform:translateY(40px);
-  transition:0.8s ease;
-}
-
-section.show{
-  opacity:1;
-  transform:translateY(0);
 }
 
 /* ================= NAV ================= */
@@ -80,57 +65,10 @@ nav a{
   color:var(--text);
 }
 
-.mode-toggle{
-  margin-right:15px;
-  cursor:pointer;
-  font-size:18px;
-}
-
 .hamburger{
   display:none;
   font-size:28px;
   cursor:pointer;
-}
-
-/* ================= MOBILE MENU ================= */
-.mobile-menu{
-  position:fixed;
-  top:0;
-  right:-100%;
-  width:75%;
-  height:100vh;
-  background:var(--nav);
-  padding:100px 30px;
-  transition:0.4s ease;
-  z-index:1900;
-}
-
-.mobile-menu.active{right:0;}
-
-.mobile-menu a{
-  display:block;
-  margin-bottom:25px;
-  font-size:18px;
-  color:var(--text);
-  text-decoration:none;
-}
-
-.overlay-bg{
-  position:fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background:rgba(0,0,0,0.4);
-  opacity:0;
-  visibility:hidden;
-  transition:0.3s;
-  z-index:1800;
-}
-
-.overlay-bg.active{
-  opacity:1;
-  visibility:visible;
 }
 
 /* ================= HERO ================= */
@@ -147,28 +85,24 @@ nav a{
   background:rgba(0,0,0,0.4);
   padding:40px;
   border-radius:20px;
+  text-align:center;
 }
 
 .hero h1{font-size:60px}
 
-.btn{
-  margin-top:20px;
-  padding:12px 30px;
-  background:#ffce00;
-  border-radius:30px;
-  text-decoration:none;
-  color:#000;
-  font-weight:600;
+/* ================= FEATURED ================= */
+section{
+  padding:100px 20px;
+  text-align:center;
 }
 
-/* ================= FEATURED GAMES ================= */
 .featured{
   background:var(--section);
 }
 
 .featured h2{
-  font-size:42px;
-  margin-bottom:60px;
+  font-size:40px;
+  margin-bottom:50px;
   color:#ff7a00;
 }
 
@@ -185,8 +119,7 @@ nav a{
   border-radius:20px;
   overflow:hidden;
   box-shadow:0 15px 35px rgba(0,0,0,0.15);
-  transition:0.4s ease;
-  text-align:left;
+  transition:0.4s;
 }
 
 body.dark .game-card{
@@ -199,60 +132,60 @@ body.dark .game-card{
 
 .game-card img{
   width:100%;
-  display:block;
 }
 
 .game-card-content{
   padding:20px;
 }
 
-.game-card-content h3{
+/* ================= FOOTER ================= */
+footer{
+  background:var(--footer);
+  color:#fff;
+  padding:60px 40px;
+  position:relative;
+}
+
+.footer-container{
+  display:flex;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  gap:40px;
+  max-width:1200px;
+  margin:auto;
+}
+
+.footer-col{
+  min-width:200px;
+}
+
+.footer-col h4{
+  margin-bottom:20px;
+}
+
+.footer-col a{
+  display:block;
   margin-bottom:10px;
-}
-
-.game-card-content p{
+  text-decoration:none;
+  color:#ddd;
   font-size:14px;
-  line-height:1.5;
-  opacity:0.8;
 }
 
-/* ================= TRAILER ================= */
-iframe{
-  width:90%;
-  max-width:840px;
-  height:470px;
-  border-radius:20px;
-  border:none;
-}
-
-/* ================= STORE ================= */
-.store{
-  background:#1b2838;
+.footer-col a:hover{
   color:#fff;
 }
 
-.store-box{
-  max-width:900px;
-  margin:auto;
-  background:#2a475e;
-  padding:40px;
-  border-radius:20px;
-}
-
-.wishlist{
-  background:#66c0f4;
-  padding:12px 25px;
-  border-radius:8px;
+/* Dark Mode Button bottom-right */
+.dark-footer-btn{
+  position:absolute;
+  right:30px;
+  bottom:20px;
+  background:#ffce00;
+  padding:10px 20px;
+  border-radius:25px;
+  cursor:pointer;
   color:#000;
-  text-decoration:none;
   font-weight:600;
-}
-
-/* ================= FOOTER ================= */
-footer{
-  padding:40px;
-  text-align:center;
-  background:var(--section);
 }
 
 /* ================= MOBILE ================= */
@@ -260,8 +193,7 @@ footer{
   nav ul{display:none}
   .hamburger{display:block}
   .hero h1{font-size:36px}
-  iframe{height:250px}
-  .game-card{width:90%}
+  .footer-container{flex-direction:column}
 }
 
 </style>
@@ -270,42 +202,26 @@ footer{
 
 <nav>
   <div class="logo">Octeel Games</div>
-
   <ul>
-    <li><a href="#hero">Home</a></li>
-    <li><a href="#featured">Featured</a></li>
-    <li><a href="#trailer">Trailer</a></li>
-    <li><a href="#store">Store</a></li>
+    <li><a href="#">Home</a></li>
+    <li><a href="#">Featured</a></li>
+    <li><a href="#">Trailer</a></li>
+    <li><a href="#">Store</a></li>
   </ul>
-
-  <div>
-    <span class="mode-toggle" onclick="toggleMode()">🌙</span>
-    <span class="hamburger" onclick="toggleMenu()">☰</span>
-  </div>
+  <div class="hamburger">☰</div>
 </nav>
 
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#hero" onclick="toggleMenu()">Home</a>
-  <a href="#featured" onclick="toggleMenu()">Featured</a>
-  <a href="#trailer" onclick="toggleMenu()">Trailer</a>
-  <a href="#store" onclick="toggleMenu()">Store</a>
-</div>
-
-<div class="overlay-bg" id="overlay" onclick="toggleMenu()"></div>
-
-<section id="hero" class="hero">
+<section class="hero">
   <div class="hero-content">
-    <h1>PartyHarvest </h1>
+    <h1>PartyHarvest 🌽</h1>
     <p>Grow crops. Play together. Party forever!</p>
-    <a href="#" class="btn">Wishlist on Steam</a>
   </div>
 </section>
 
-<section id="featured" class="featured">
+<section class="featured">
   <h2>Featured Games</h2>
 
   <div class="featured-grid">
-
     <div class="game-card">
       <img src="hero.png">
       <div class="game-card-content">
@@ -318,7 +234,7 @@ footer{
       <img src="hero.png">
       <div class="game-card-content">
         <h3>Coming Soon</h3>
-        <p>Our next colorful multiplayer adventure.</p>
+        <p>More joyful multiplayer adventures.</p>
       </div>
     </div>
 
@@ -326,48 +242,45 @@ footer{
       <img src="hero.png">
       <div class="game-card-content">
         <h3>Future Project</h3>
-        <p>More joyful indie experiences are on the way.</p>
+        <p>Stay tuned for new indie experiences.</p>
       </div>
     </div>
-
-  </div>
-</section>
-
-<section id="trailer">
-  <h2> Official Trailer</h2>
-  <iframe src="https://www.youtube.com/embed/cIubERFNhh8" allowfullscreen></iframe>
-</section>
-
-<section id="store" class="store">
-  <div class="store-box">
-    <h3>PartyHarvest on Steam</h3>
-    <p>Coming Soon</p>
-    <a href="#" class="wishlist">Add to Wishlist</a>
   </div>
 </section>
 
 <footer>
-© 2026 Octeel Games
+  <div class="footer-container">
+
+    <div class="footer-col">
+      <h4>Octeel Games</h4>
+      <a href="#">About</a>
+      <a href="#">Careers</a>
+      <a href="#">Press</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="#">Contact</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms & Conditions</a>
+    </div>
+
+    <div class="footer-col">
+      <h4>Follow Us</h4>
+      <a href="#">Facebook</a>
+      <a href="#">Twitter</a>
+      <a href="#">YouTube</a>
+      <a href="#">Instagram</a>
+    </div>
+
+  </div>
+
+  <div class="dark-footer-btn" onclick="toggleMode()">
+    🌙 Dark Mode
+  </div>
 </footer>
 
 <script>
-
-function toggleMenu(){
-  document.getElementById("mobileMenu").classList.toggle("active");
-  document.getElementById("overlay").classList.toggle("active");
-}
-
-/* Fade-in */
-const sections = document.querySelectorAll("section");
-window.addEventListener("scroll", ()=>{
-  sections.forEach(sec=>{
-    if(sec.getBoundingClientRect().top < window.innerHeight - 100){
-      sec.classList.add("show");
-    }
-  });
-});
-
-/* Dark Mode */
 function toggleMode(){
   document.body.classList.toggle("dark");
   localStorage.setItem("theme",
@@ -378,7 +291,6 @@ function toggleMode(){
 if(localStorage.getItem("theme") === "dark"){
   document.body.classList.add("dark");
 }
-
 </script>
 
 </body>
