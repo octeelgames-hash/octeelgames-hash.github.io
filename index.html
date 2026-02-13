@@ -2,106 +2,129 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>PartyHarvest by Octeel Games</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PartyHarvest - Octeel Games</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
 
-/* GLOBAL */
-* {
+/* ========== GLOBAL ========== */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #222;
+  --nav-bg: rgba(255,255,255,0.9);
+  --section-bg: #f5f5f5;
+}
+
+body.dark {
+  --bg-color: #111;
+  --text-color: #f5f5f5;
+  --nav-bg: rgba(20,20,20,0.95);
+  --section-bg: #1a1a1a;
+}
+
+*{
   margin:0;
   padding:0;
   box-sizing:border-box;
 }
-body {
-  font-family: 'Poppins', sans-serif;
-  color:#333;
-  background:#fff;
-}
-a {
-  text-decoration:none;
-  color:inherit;
-}
-section {
-  padding:60px 20px;
+
+body{
+  font-family:'Poppins', sans-serif;
+  background:var(--bg-color);
+  color:var(--text-color);
+  transition:0.3s;
 }
 
-/* NAVIGATION */
-nav {
-  width:100%;
-  padding:20px 40px;
+section{
+  padding:80px 20px;
+  text-align:center;
+}
+
+/* ========== NAVIGATION ========== */
+nav{
   position:fixed;
   top:0;
-  left:0;
-  background:rgba(255,255,255,0.9);
+  width:100%;
+  padding:15px 40px;
+  background:var(--nav-bg);
   display:flex;
   justify-content:space-between;
   align-items:center;
-  z-index:100;
-  box-shadow:0 3px 8px rgba(0,0,0,0.1);
-}
-nav .logo {
-  font-size:28px;
-  font-weight:600;
-  color:#2d3436;
-}
-nav ul {
-  list-style:none;
-  display:flex;
-  gap:25px;
-}
-nav ul li {
-  font-size:16px;
-  font-weight:500;
-}
-nav .btn-main {
-  padding:10px 22px;
-  background:#ffcc00;
-  font-weight:600;
-  border-radius:25px;
-  transition:0.3s;
-}
-nav .btn-main:hover {
-  background:#f1a600;
+  backdrop-filter: blur(10px);
+  z-index:1000;
 }
 
-/* HERO */
-.hero {
-  height:100vh;
-  background:url("hero.png") center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
+nav .logo{
+  font-size:22px;
+  font-weight:600;
 }
-.hero .content {
+
+nav ul{
+  display:flex;
+  list-style:none;
+  gap:25px;
+}
+
+nav a{
+  text-decoration:none;
+  color:var(--text-color);
+  font-weight:500;
+}
+
+.toggle-btn{
+  cursor:pointer;
+  padding:8px 16px;
+  border-radius:20px;
+  background:#ffce00;
+  font-size:14px;
+}
+
+/* ========== HERO PARALLAX ========== */
+.hero{
+  height:100vh;
+  background:url("hero.png") center/cover no-repeat fixed;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:#fff;
+}
+
+.hero .overlay{
   background:rgba(0,0,0,0.4);
   padding:40px;
   border-radius:20px;
-  color:#fff;
 }
-.hero h1 {
+
+.hero h1{
   font-size:60px;
-  margin-bottom:10px;
 }
-.hero p {
+
+.hero p{
   font-size:20px;
-  margin-bottom:20px;
+  margin-top:10px;
 }
-.hero .btn-play {
+
+.hero .btn{
+  margin-top:20px;
   padding:12px 28px;
-  background:#ffce00;
   border-radius:25px;
-  font-size:18px;
+  background:#ffce00;
   font-weight:600;
+  display:inline-block;
+  text-decoration:none;
+  color:#000;
   transition:0.3s;
 }
-.hero .btn-play:hover {
+
+.hero .btn:hover{
   background:#eab300;
 }
 
-/* TRAILER */
-.trailer iframe {
+/* ========== TRAILER ========== */
+iframe{
   width:90%;
   max-width:840px;
   height:470px;
@@ -109,80 +132,98 @@ nav .btn-main:hover {
   border:none;
 }
 
-/* SCREENSHOT GALLERY */
-.gallery {
+/* ========== GALLERY ========== */
+.gallery{
   display:flex;
   gap:30px;
   justify-content:center;
   flex-wrap:wrap;
 }
-.gallery img {
+
+.gallery img{
   width:300px;
   border-radius:20px;
   transition:0.3s;
 }
-.gallery img:hover {
+
+.gallery img:hover{
   transform:scale(1.05);
 }
 
-/* ABOUT */
-.about {
+/* ========== ABOUT ========== */
+.about{
   max-width:800px;
   margin:auto;
-  font-size:18px;
-  line-height:1.6;
-  color:#444;
+  background:var(--section-bg);
+  padding:30px;
+  border-radius:20px;
 }
 
-/* FOOTER */
-footer {
-  text-align:center;
+/* ========== FOOTER ========== */
+footer{
   padding:30px;
-  background:#f1f1f1;
-  font-size:14px;
+  text-align:center;
+  background:var(--section-bg);
+}
+
+/* ========== MOBILE RESPONSIVE ========== */
+@media (max-width:768px){
+
+  nav ul{
+    display:none;
+  }
+
+  .hero h1{
+    font-size:36px;
+  }
+
+  iframe{
+    height:250px;
+  }
+
+  .gallery img{
+    width:90%;
+  }
 }
 
 </style>
 </head>
 <body>
 
-<!-- NAVIGATION -->
+<!-- NAV -->
 <nav>
   <div class="logo">Octeel Games</div>
   <ul>
     <li><a href="#hero">Home</a></li>
     <li><a href="#trailer">Trailer</a></li>
-    <li><a href="#screenshots">Screenshots</a></li>
+    <li><a href="#screens">Screenshots</a></li>
     <li><a href="#about">About</a></li>
   </ul>
-  <a class="btn-main" href="#">Wishlist on Steam</a>
+  <div class="toggle-btn" onclick="toggleMode()">🌙 Mode</div>
 </nav>
 
 <!-- HERO -->
 <section id="hero" class="hero">
-  <div class="content">
+  <div class="overlay">
     <h1>PartyHarvest 🌽</h1>
-    <p>Co-op Farming Fun With Friends!</p>
-    <a class="btn-play" href="#">Play Together!</a>
+    <p>Grow crops. Play together. Party forever!</p>
+    <a href="#" class="btn">Wishlist on Steam</a>
   </div>
 </section>
 
 <!-- TRAILER -->
-<section id="trailer" class="trailer">
+<section id="trailer">
   <h2>🎬 Official Trailer</h2>
-  <iframe 
-    src="https://www.youtube.com/embed/cIubERFNhh8"
-    allowfullscreen>
-  </iframe>
+  <iframe src="https://www.youtube.com/embed/cIubERFNhh8" allowfullscreen></iframe>
 </section>
 
 <!-- SCREENSHOTS -->
-<section id="screenshots">
+<section id="screens">
   <h2>🖼 Screenshots</h2>
   <div class="gallery">
-    <img src="screen1.png">
-    <img src="screen2.png">
-    <img src="screen3.png">
+    <img src="hero.png">
+    <img src="hero.png">
+    <img src="hero.png">
   </div>
 </section>
 
@@ -190,15 +231,20 @@ footer {
 <section id="about">
   <h2>🌱 About Octeel Games</h2>
   <div class="about">
-    Octeel Games is an indie studio creating joyful co-op experiences.
-    Our first game PartyHarvest lets players grow, decorate and farm with friends.
+    Octeel Games creates joyful multiplayer farming adventures.
+    PartyHarvest is our cozy co-op game designed for fun with friends.
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  © 2026 Octeel Games
+© 2026 Octeel Games
 </footer>
+
+<script>
+function toggleMode(){
+  document.body.classList.toggle("dark");
+}
+</script>
 
 </body>
 </html>
